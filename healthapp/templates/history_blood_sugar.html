@@ -1,0 +1,48 @@
+{% extends 'user_index.html' %}
+{% block body %}
+<!-- Register Section Begin -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header border-0">
+                <h2 class="card-title" style="color:blue">Member Details:</h2>
+              </div>
+                    <hr>
+                    <table id="example1" class="table table-bordered table-striped">
+                    <tr>
+                        <th>Full Name:</th>
+                        <td>{{data.fullname}}</td>
+                        <th>Gender:</th>
+                        <td>{{data.fullname.gender}}</td>
+                    </tr>
+                    <tr>
+                        <th>Age:</th>
+                        <td>{{data.fullname.age}}</td>
+                        <th>Weight:</th>
+                        <td>{{data.fullname.weight}}</td>
+                    </tr>
+                </table>
+                    <table id="example2" class="table table-bordered table-striped">
+                    <th style="color:blue">History of Sugar Monitoring:</th>
+                    <tr>
+                        <th>Type of Test:</th>
+                        <th>Level of Blood Sugar:</th>
+                        <th>Monitoring Date:</th>
+                    </tr>
+                    <tr>
+                        <td>{{data.typesofbloodsugar}}</td>
+                        <td>{{data.bloodsugarmgdl}}</td>
+                        <td>{{data.creationdate}}</td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

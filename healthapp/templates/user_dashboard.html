@@ -1,0 +1,55 @@
+{% extends 'user_index.html' %}
+{% load static %}
+{% block body %}
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-12" style="color:red" align="center">
+            <h1 class="m-0">Welcome to HMMS</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header" style="color:red">
+                <h5 align="center">Ranges of Tests</h5>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">S.No</th>
+                      <th>Test Name</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for i in data %}
+                    <tr>
+                      <td>{{forloop.counter}}.</td>
+                      <td>{{i.testname}}</td>
+                      <td>
+                        {{i.description|safe}}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+ {% endblock %}

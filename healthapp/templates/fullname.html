@@ -1,0 +1,4 @@
+<option value="">Select Member</option>
+{% for i in fullname %}
+<option value="{{i.id}}" {% if i.id == data.fullname.id %}selected{% endif %}>{{i.fullname}}</option>
+{% endfor %}

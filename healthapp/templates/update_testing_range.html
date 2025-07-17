@@ -1,0 +1,44 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+{% load static %}
+ <div class="pagetitle">
+      <h1>Update Testing Range Details</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/dashboard/">Home</a></li>
+          <li class="breadcrumb-item active">Update Testing Range Details</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+ <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Update Testing Range Details</h5>
+        <form action="" method="post">
+            {% csrf_token %}
+        <div class="form-group ">
+            <label class="col-sm-2 col-form-label">Test Name*</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control" name="testname" placeholder="Enter Name"  value="{{data.testname}}">
+            </div>
+        </div>
+        <br/>
+        <div class="form-group ">
+            <label class="col-sm-2 col-form-label">Description*</label>
+            <textarea name="editor1">{{data.description|safe}}</textarea>
+        </div>
+            <hr/>
+        <div align="center">
+             <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+ </div>
+
+
+<script src="https://cdn.ckeditor.com/4.20.1/full/ckeditor.js"></script>
+
+<script>
+        CKEDITOR.replace( 'editor1' );
+</script>
+{% endblock %}

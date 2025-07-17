@@ -1,0 +1,73 @@
+{% extends 'user_index.html' %}
+{% block body %}
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Add Blood Pressure</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add Blood Pressure</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+    <div class="content">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header border-0">
+                <h3 class="card-title">Add Blood Pressure</h3>
+              </div>
+                <hr>
+              <div class="card-block">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group ">
+                        <label class="col-sm-2 col-form-label">Family Member*</label>
+                        <div class="col-sm-12">
+                             <select class="form-control" name="fullname" style="width: 100%;" onchange="memberfield()">
+                            <option value="">Choose Family Member</option>
+                            {% for i in mymember %}
+                            <option value="{{i.id}}" {% if request.GET.fullname == i.id|lower %}selected{% endif %}>
+                                {{i.fullname}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="col-sm-2 col-form-label">SYSmmHg*</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="sysmmhg" placeholder="Enter SYS" required>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="col-sm-2 col-form-label">DIAmmHg*</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="diammhg" placeholder="Enter DIA" required>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label class="col-sm-2 col-form-label">Pluses/min*</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" name="pluses" placeholder="Enter Pluses/min" required>
+                        </div>
+                    </div>
+                    <div align="center">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ </div>
+ {% endblock %}
